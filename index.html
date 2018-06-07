@@ -4,7 +4,15 @@
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    
+    <script>
+    function startTime() {
+        document.getElementById('clock').innerHTML = new Date();
+        setTimeout(startTime, 500);
+    }
+</script>
   </head>
+  
   <body>
     <a-scene>
       <a-assets>
