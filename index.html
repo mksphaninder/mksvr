@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="school" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2Fschool.png?1528325102482" />
+        <img id="city" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2Fcityscape.png?1528325104249" />
+        <img id="hotel" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2Fhotel.png?1528325107633" />
+        <img id="school360" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2F120317-old-boys-school-360-081.jpg?1528325381628" />
+        <img id="city360" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2F360Level43Lounge-8K-stable-noaudio-1024x512.jpg?1528326860844" />
+        <img id="hotel360" src="https://cdn.glitch.com/a2ce900a-1784-43d3-88cc-4cc10e3a6047%2F360-video-venetian-hotel-escalator-las-vegas-4k_SX-pwRd-e_thumbnail-full01.png?1528326863677" />      
+      </a-assets>
+      <a-entity camera="reverse-mouse-drag:true" look-controls="">
+        <a-cursor fuse="true">
+          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+               fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+        </a-cursor>
+      </a-entity>
+      <a-sky id="skyid" src="#school360" geometry="primitive: sphere; radius: 100; segmentsWidth: 64; segmentsHeight: 32"></a-sky>
+      <a-entity id="schoolbutton" onclick="changeSky('#school360');" position="0 1.5 -5" geometry="primitive:circle" material="src:#school;opacity:0.9"></a-entity>
+      <a-entity id="citybutton" onclick="changeSky('#city360');" position="-2.5 1.5 -5" geometry="primitive:circle" material="src:#city;opacity:0.9"></a-entity>
+      <a-entity id="hotelbutton" onclick="changeSky('#hotel360');" position="2.5 1.5 -5" geometry="primitive:circle" material="src:#hotel;opacity:0.9"></a-entity>    
+    </a-scene>
+  </body>
+  <script>
+  function changeSky(skyimg){
+    var sky = document.getElementById('skyid');
+    sky.setAttribute('src', skyimg);
+  }
+  </script>
+</html>
